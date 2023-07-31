@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Title } from './Feedback.styled';
 import { FeedbackOptions } from './FeedbackOptions';
+import { Section } from './Section';
 
 import { Statistics } from './Statistics';
 
@@ -40,20 +41,23 @@ export class Feedback extends React.Component {
 
   render() {
     const { good, neutral, bad, total, percentage } = this.state;
+    const options = ['Good', 'Neutral', 'Bad'];
+
     return (
       <Container>
-        <Title>Please leave feedback</Title>
-        <FeedbackOptions
-          options={this.state}
-          onLeaveFeedback={this.handleChangeComment}
-        />
-        <Statistics
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          total={total}
-          positivePercentage={percentage}
-        />
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            options={options}
+            onLeaveFeedback={this.handleChangeComment}
+          />
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={total}
+            positivePercentage={percentage}
+          />
+        </Section>
       </Container>
     );
   }

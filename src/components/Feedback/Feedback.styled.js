@@ -28,24 +28,14 @@ export const ButtonGroup = styled.div`
 export const Button = styled.button`
   padding: 10px 20px;
   font-size: 16px;
-  color: #ffffff;
+  color: #333333;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-right: 10px;
   width: 100px;
-`;
-
-export const GoodButton = styled(Button)`
-  background-color: #63b79b;
-`;
-
-export const NeutralButton = styled(Button)`
-  background-color: #f1c40f;
-`;
-
-export const BadButton = styled(Button)`
-  background-color: #e74c3c;
+  border: 1px solid #e7e7e7;
+  background-color: transparent;
 `;
 
 export const StatisticsTitle = styled.h2`

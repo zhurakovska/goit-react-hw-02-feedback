@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Notification } from './Notification';
+
 import { StatisticsTitle, Statistic } from './Feedback.styled';
 
 export const Statistics = ({
@@ -9,6 +11,10 @@ export const Statistics = ({
   total,
   positivePercentage,
 }) => {
+  if (!total) {
+    return <Notification message="There is no feedback" />;
+  }
+
   return (
     <>
       <StatisticsTitle>Statistics</StatisticsTitle>
