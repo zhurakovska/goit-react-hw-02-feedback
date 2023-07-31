@@ -6,9 +6,9 @@ import {
   GoodButton,
   NeutralButton,
   BadButton,
-  StatisticsTitle,
-  Statistic,
 } from './Feedback.styled';
+
+import { Statistics } from './Statistics';
 
 export class Feedback extends React.Component {
   state = {
@@ -60,12 +60,13 @@ export class Feedback extends React.Component {
             Bad
           </BadButton>
         </ButtonGroup>
-        <StatisticsTitle>Statistics</StatisticsTitle>
-        <Statistic>Good:{good}</Statistic>
-        <Statistic>Neutral: {neutral}</Statistic>
-        <Statistic>Bad: {bad}</Statistic>
-        <Statistic>Total: {total}</Statistic>
-        <Statistic>Positive feedback: {percentage}%</Statistic>
+        <Statistics
+          good={good}
+          neutral={neutral}
+          bad={bad}
+          total={total}
+          positivePercentage={percentage}
+        />
       </Container>
     );
   }
