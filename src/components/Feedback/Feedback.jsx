@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-  Container,
-  Title,
-  ButtonGroup,
-  GoodButton,
-  NeutralButton,
-  BadButton,
-} from './Feedback.styled';
+import { Container, Title } from './Feedback.styled';
+import { FeedbackOptions } from './FeedbackOptions';
 
 import { Statistics } from './Statistics';
 
@@ -49,17 +43,10 @@ export class Feedback extends React.Component {
     return (
       <Container>
         <Title>Please leave feedback</Title>
-        <ButtonGroup>
-          <GoodButton name="good" onClick={this.handleChangeComment}>
-            Good
-          </GoodButton>
-          <NeutralButton name="neutral" onClick={this.handleChangeComment}>
-            Neutral
-          </NeutralButton>
-          <BadButton name="bad" onClick={this.handleChangeComment}>
-            Bad
-          </BadButton>
-        </ButtonGroup>
+        <FeedbackOptions
+          options={this.state}
+          onLeaveFeedback={this.handleChangeComment}
+        />
         <Statistics
           good={good}
           neutral={neutral}
