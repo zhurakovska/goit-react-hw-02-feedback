@@ -5,10 +5,11 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 20px;
   margin-top: 100px;
-  background-color: #ffffff;
-  /* display: flex;
+  background-color: #2196f3;
+  color: #ffffff;
+  display: flex;
   flex-direction: column;
-  align-items: center; */
+  align-items: center;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
@@ -28,14 +29,14 @@ export const ButtonGroup = styled.div`
 export const Button = styled.button`
   padding: 10px 20px;
   font-size: 16px;
-  color: #333333;
+  background-color: #1976d2;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-right: 10px;
   width: 100px;
   border: 1px solid #e7e7e7;
-  background-color: transparent;
 `;
 
 export const StatisticsTitle = styled.h2`

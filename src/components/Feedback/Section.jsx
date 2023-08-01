@@ -1,5 +1,6 @@
 import React from 'react';
 import { Title } from './Feedback.styled';
+import PropTypes from 'prop-types';
 
 export const Section = ({ children, title }) => {
   return (
