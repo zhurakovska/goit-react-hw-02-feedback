@@ -9,3 +9,8 @@ export const Section = ({ children, title }) => {
     </>
   );
 };
+
+Section.propTypes = {
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+};
