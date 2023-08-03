@@ -12,10 +12,6 @@ export const Statistics = ({
   total,
   positivePercentage,
 }) => {
-  if (!total) {
-    return <Notification message="There is no feedback" />;
-  }
-
   return (
     <>
       <StatisticsTitle>Statistics</StatisticsTitle>

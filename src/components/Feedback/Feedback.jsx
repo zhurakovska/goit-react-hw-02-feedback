@@ -48,14 +48,15 @@ export class Feedback extends React.Component {
             options={options}
             onLeaveFeedback={this.handleChangeComment}
           />
-
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={total}
-            positivePercentage={percentage}
-          />
+          {total > 0 && (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              positivePercentage={percentage}
+            />
+          )}
         </Section>
       </Container>
     );
