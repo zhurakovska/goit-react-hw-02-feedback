@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from './Feedback.styled';
 import { FeedbackOptions } from './FeedbackOptions';
 import { Section } from './Section';
+import { Notification } from './Notification';
 
 import { Statistics } from './Statistics';
 
@@ -14,32 +15,13 @@ export class Feedback extends React.Component {
 
   handleChangeComment = event => {
     const { name } = event.target;
-    this.setState(
-      prevState => ({ [name]: prevState[name] + 1 }),
-      this.countTotalFeedback
-    );
-  };
-
-  countTotalFeedback = () => {
-    const { good, neutral, bad } = this.state;
-    this.setState(
-      {
-        total: good + neutral + bad,
-      },
-      this.countPositiveFeedbackPercentage
-    );
-  };
-
-  countPositiveFeedbackPercentage = () => {
-    const { good, total } = this.state;
-    this.setState({
-      percentage: total > 0 ? ((good / total) * 100).toFixed(1) : 0,
-    });
+    this.setState(prevState => ({ [name]: prevState[name] + 1 }));
   };
 
   render() {
-    const { good, neutral, bad, total, percentage } = this.state;
+    const { good, neutral, bad } = this.state;
     const options = ['Good', 'Neutral', 'Bad'];
+    const total = good + neutral + bad;
 
     return (
       <Container>
@@ -48,14 +30,10 @@ export class Feedback extends React.Component {
             options={options}
             onLeaveFeedback={this.handleChangeComment}
           />
-          {total > 0 && (
-            <Statistics
-              good={good}
-              neutral={neutral}
-              bad={bad}
-              total={total}
-              positivePercentage={percentage}
-            />
+          {total > 0 ? (
+            <Statistics good={good} neutral={neutral} bad={bad} total={total} />
+          ) : (
+            <Notification massege="Відгуків немає" />
           )}
         </Section>
       </Container>

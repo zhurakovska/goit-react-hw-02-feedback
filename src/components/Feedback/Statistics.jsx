@@ -5,13 +5,8 @@ import { Notification } from './Notification';
 
 import { StatisticsTitle, Statistic } from './Feedback.styled';
 
-export const Statistics = ({
-  good,
-  neutral,
-  bad,
-  total,
-  positivePercentage,
-}) => {
+export const Statistics = ({ good, neutral, bad, total }) => {
+  const positivePercentage = total > 0 ? ((good / total) * 100).toFixed(1) : 0;
   return (
     <>
       <StatisticsTitle>Statistics</StatisticsTitle>
