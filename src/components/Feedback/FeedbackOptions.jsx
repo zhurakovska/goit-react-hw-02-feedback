@@ -5,8 +5,12 @@ import { ButtonGroup, Button } from './Feedback.styled';
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <ButtonGroup>
-      {options.map(option => (
-        <Button name={option.toLowerCase()} onClick={onLeaveFeedback}>
+      {options.map((option, index) => (
+        <Button
+          key={index}
+          name={option.toLowerCase()}
+          onClick={onLeaveFeedback}
+        >
           {option}
         </Button>
       ))}

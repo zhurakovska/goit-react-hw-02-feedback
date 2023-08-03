@@ -13,15 +13,26 @@ export class Feedback extends React.Component {
     bad: 0,
   };
 
+  countTotalFeedback = () => {
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
+  };
+
   handleChangeComment = event => {
     const { name } = event.target;
     this.setState(prevState => ({ [name]: prevState[name] + 1 }));
   };
 
+  countPositiveFeedbackPercentage = () => {
+    const { good } = this.state;
+    return this.countTotalFeedback() > 0
+      ? ((good / this.countTotalFeedback()) * 100).toFixed(1)
+      : 0;
+  };
+
   render() {
     const { good, neutral, bad } = this.state;
     const options = ['Good', 'Neutral', 'Bad'];
-    const total = good + neutral + bad;
 
     return (
       <Container>
@@ -30,10 +41,16 @@ export class Feedback extends React.Component {
             options={options}
             onLeaveFeedback={this.handleChangeComment}
           />
-          {total > 0 ? (
-            <Statistics good={good} neutral={neutral} bad={bad} total={total} />
+          {this.countTotalFeedback() > 0 ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              countTotalFeedback={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
           ) : (
-            <Notification massege="Відгуків немає" />
+            <Notification message="There is no feedback" />
           )}
         </Section>
       </Container>
