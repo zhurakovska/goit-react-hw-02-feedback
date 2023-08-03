@@ -2,7 +2,6 @@ import React from 'react';
 import { Container } from './Feedback.styled';
 import { FeedbackOptions } from './FeedbackOptions';
 import { Section } from './Section';
-import PropTypes from 'prop-types';
 
 import { Statistics } from './Statistics';
 
@@ -11,8 +10,6 @@ export class Feedback extends React.Component {
     good: 0,
     neutral: 0,
     bad: 0,
-    total: 0,
-    percentage: 0,
   };
 
   handleChangeComment = event => {
@@ -51,6 +48,7 @@ export class Feedback extends React.Component {
             options={options}
             onLeaveFeedback={this.handleChangeComment}
           />
+
           <Statistics
             good={good}
             neutral={neutral}
@@ -63,16 +61,3 @@ export class Feedback extends React.Component {
     );
   }
 }
-
-Feedback.propTypes = {
-  state: PropTypes.objectOf(
-    PropTypes.shape({
-      good: PropTypes.number.isRequired,
-      neutral: PropTypes.number.isRequired,
-      bad: PropTypes.number.isRequired,
-      total: PropTypes.number.isRequired,
-      percentage: PropTypes.number.isRequired,
-    })
-  ).isRequired,
-  title: PropTypes.string.isRequired,
-};
